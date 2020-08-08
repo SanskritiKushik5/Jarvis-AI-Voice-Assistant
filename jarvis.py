@@ -12,11 +12,13 @@ engine.setProperty('voice', voices[0].id)
 
 
 def speak(audio):
+    """To make Jarvis Speak"""
     engine.say(audio)
     engine.runAndWait()
 
 
 def wishMe():
+    """To make Jarvis wish according to the time"""
     hour = int(datetime.datetime.now().hour)
     if hour>=0 and hour<12:
         speak("Good Morning!")
@@ -28,7 +30,7 @@ def wishMe():
 
 
 def takeCommand():
-    # it takes microphone input from the user and retuen string output
+    """To takes microphone input from the user and returns string output"""
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
@@ -47,6 +49,7 @@ def takeCommand():
 
 
 def sendEmail(to, content):
+    """To send Emails"""
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
